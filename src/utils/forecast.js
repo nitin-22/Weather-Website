@@ -8,7 +8,8 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error){
             callback('unable to find location', undefined)
         } else {
-            callback(undefined, body.current.weather_descriptions[0]+'. The current tempersture is '+body.current.temperature+" degrees and it feels like "+body.current.feelslike+" degrees.")
+            console.log(body.current.humidity)
+            callback(undefined, body.current.weather_descriptions[0]+'. The current temperature is '+body.current.temperature+" degrees and it feels like "+body.current.feelslike+" degrees out. The humidity is "+ body.current.humidity+"% with a visibility of "+ body.current.visibility+" kms. The wind speed is "+body.current.wind_speed+" km per hour and wind direction is "+ body.current.wind_dir+". The current date and time of the searched location is "+body.location.localtime+".")
         }
     })
 }
